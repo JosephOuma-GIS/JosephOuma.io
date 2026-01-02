@@ -213,7 +213,22 @@
     .service-card a:hover {
       color: var(--primary-dark);
     }
+    .service-header-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+      margin: -2.5rem -2.5rem 1.5rem -2.5rem;
+    }
 
+    .service-card h3 {
+      margin-top: 0; /* Adjust spacing after image */
+    }
+
+    @media (max-width: 768px) {
+      .service-header-img {
+        height: 140px;
+      }
     /* Projects Grid */
     .featured-projects-grid {
       display: grid;
@@ -420,9 +435,8 @@
     <p class="research-intro">
       I work as a consultant, researcher, and educator—offering end-to-end GIS solutions, rigorous geospatial research, and practical technical training tailored to your needs.
     </p>
-
-    <div class="services-grid">
       <div class="service-card">
+        <img src="https://geospatialtraining.com/wp-content/uploads/2025/02/computer-screen-plt-dashboard.png" alt="Geospatial Consulting - GIS Dashboard and Mapping" class="service-header-img">
         <div class="service-icon">📊</div>
         <h3>Geospatial Consulting</h3>
         <p>End-to-end GIS solutions for infrastructure mapping, environmental assessment, resource management, and spatial decision-support systems.</p>
@@ -430,6 +444,7 @@
       </div>
 
       <div class="service-card">
+        <img src="https://ars.els-cdn.com/content/image/1-s2.0-S0048969723054451-gr1.jpg" alt="Research & Analysis - Satellite Remote Sensing Imagery" class="service-header-img">
         <div class="service-icon">🔬</div>
         <h3>Research & Analysis</h3>
         <p>Rigorous geospatial research combining remote sensing, spatial analysis, climate modeling, and governance frameworks for actionable intelligence.</p>
@@ -437,12 +452,12 @@
       </div>
 
       <div class="service-card">
+        <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=843473288327825" alt="Technical Education - GIS Training Workshop Classroom" class="service-header-img">
         <div class="service-icon">🎓</div>
         <h3>Technical Education</h3>
         <p>Hands-on training in GIS, remote sensing, and spatial analysis. Workshops, courses, and mentorship for students and professionals.</p>
         <a href="services.html">Learn More →</a>
       </div>
-    </div>
 
     <div class="value-section">
       <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 2rem;">Why Work With Me</h3>
