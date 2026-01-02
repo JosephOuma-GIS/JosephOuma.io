@@ -1,1 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate-Smart Agriculture Governance & AI Accountability | Joseph Ouma</title>
+  <meta name="description" content="Governance-oriented research on climate tipping point modelling and AI accountability in climate-smart agriculture adaptation systems. UNESCO and Chinese Government endorsed project.">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --primary: #4f46e5;
+      --secondary: #06b6d4;
+      --accent: #10b981;
+      --dark: #1f2937;
+      --light: #f9fafb;
+      --gray: #6b7280;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--dark);
+      background: var(--light);
+      line-height: 1.7;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 1rem 2rem;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    header {
+      background: linear-gradient(135deg, #065f46, #047857);
+      color: white;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      margin-top: 70px;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    header p {
+      max-width: 900px;
+      margin: auto;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    .endorsement-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      font-weight: 700;
+    }
+
+    h2::after {
+      content: '';
+      width: 50px;
+      height: 4px;
+      background: linear-gradient(90deg, #047857, #065f46);
+      display: block;
+      margin-top: .8rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    ul {
+      margin-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.8rem;
+      font-size: 1.05rem;
+    }
+
+    .meta-box {
+      background: white;
+      padding: 2rem;
+      border-left: 5px solid #047857;
+      margin: 2.5rem 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border-radius: 8px;
+    }
+
+    .meta-box strong {
+      color: #047857;
+      display: block;
+      margin-top: 0.8rem;
+    }
+
+    .meta-box strong:first-child {
+      margin-top: 0;
+    }
+
+    .status-badge {
+      display: inline-block;
+      background: #ecfdf5;
+      color: #047857;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    .research-framework {
+      background: #f0fdf4;
+      padding: 2.5rem;
+      border-radius: 8px;
+      margin: 3rem 0;
+      border: 2px solid #dcfce7;
+    }
+
+    .research-framework h3 {
+      color: #047857;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .breadcrumb {
+      padding: 1rem 2rem;
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      margin-top: 70px;
+    }
+
+    .breadcrumb a {
+      color: #047857;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .key-questions {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      margin: 2.5rem 0;
+    }
+
+    .key-questions h3 {
+      color: #047857;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .key-questions ol {
+      margin-left: 1.5rem;
+    }
+
+    .key-questions li {
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      .nav-links { gap: 1rem; }
+      h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <a href="../index.html" class="nav-brand"><i class="fas fa-map"></i> Joseph Ouma</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#featured-projects">Projects</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="../index.html"><i class="fas fa-home"></i> Home</a> / 
+    <span>Climate-Smart Agriculture Governance</span>
+  </div>
+</div>
+
+<header>
+  <h1>Climate-Smart Agriculture Governance & AI Accountability</h1>
+  <p>Designing governance frameworks for climate tipping point modelling systems: Accountability, consistency validation, and institutional responsibility in AI-informed agricultural adaptation.</p>
+  <div class="endorsement-badge">
+    <i class="fas fa-certificate"></i> UNESCO & Chinese Government Endorsed
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>Project Overview</h2>
+  <p>
+    This ongoing governance-oriented research project addresses a critical gap in climate-smart agriculture systems: Who is responsible when AI-driven tipping point models produce inconsistent or conflicting predictions? 
+  </p>
+  <p>
+    The project develops institutional accountability frameworks and governance structures for climate vulnerability assessment systems that integrate AI, geospatial analysis, and multi-stakeholder decision-making. Working across arid and semi-arid lands in alignment with Chinese agricultural policy, this research examines how governments, research institutions, and technology providers can ensure model transparency, validation, and accountability when making adaptation decisions that affect farming communities.
+  </p>
+
+  <div class="meta-box">
+    <strong>Project Type:</strong> Governance Research & Policy Development
+    <strong>Status:</strong> <span class="status-badge">Ongoing</span>
+    <strong>Endorsement:</strong> UNESCO & Chinese Government
+    <strong>Geographic Focus:</strong> Arid and Semi-Arid Lands (ASAL), China
+    <strong>Research Phase:</strong> Governance Framework Design
+  </div>
+
+  <h2>Core Research Questions</h2>
+  <div class="key-questions">
+    <h3>Central Inquiry</h3>
+    <ol>
+      <li>When AI tipping point models deliver inconsistent or conflicting vulnerability assessments, who bears institutional responsibility?</li>
+      <li>What governance mechanisms ensure model validation and accountability across government, research, and implementation stakeholders?</li>
+      <li>How can geospatial intelligence systems integrate with policy frameworks to reduce decision-making uncertainty in climate adaptation?</li>
+      <li>What liability and accountability structures should guide automated agricultural decision-support systems?</li>
+    </ol>
+  </div>
+
+  <h2>Research Framework</h2>
+  
+  <div class="research-framework">
+    <h3>Governance Dimensions</h3>
+    <ul>
+      <li><strong>Model Accountability:</strong> Establishing responsibility chains when predictions diverge or prove inaccurate</li>
+      <li><strong>Transparency & Explainability:</strong> Making AI model logic accessible to policymakers and farming communities</li>
+      <li><strong>Validation Protocols:</strong> Developing standards for ground-truthing and model performance assessment</li>
+      <li><strong>Stakeholder Integration:</strong> Aligning technical outputs with institutional decision-making processes</li>
+      <li><strong>Liability Frameworks:</strong> Clarifying responsibility for adaptation decisions informed by model outputs</li>
+      <li><strong>Adaptive Management:</strong> Creating feedback loops to improve model consistency and real-world alignment</li>
+    </ul>
+  </div>
+
+  <h2>Methodological Approach</h2>
+  <ul>
+    <li><strong>Institutional Analysis:</strong> Mapping governance structures and decision-making workflows across stakeholders</li>
+    <li><strong>Model Consistency Assessment:</strong> Identifying sources of divergence in tipping point predictions (data, methodology, assumptions)</li>
+    <li><strong>Policy Alignment:</strong> Examining how AI outputs integrate with existing agricultural and climate policy frameworks</li>
+    <li><strong>Stakeholder Engagement:</strong> Participatory research with government agencies, research institutions, and farming communities</li>
+    <li><strong>Framework Development:</strong> Co-designing accountability and transparency protocols with institutional partners</li>
+  </ul>
+
+  <h2>Key Project Objectives</h2>
+  <ul>
+    <li>Develop clear governance protocols defining institutional accountability when model predictions diverge</li>
+    <li>Create validation and quality assurance standards for climate vulnerability assessment systems</li>
+    <li>Design transparency mechanisms that communicate model uncertainty and limitations to policymakers</li>
+    <li>Establish liability and responsibility frameworks for government and research entities using AI predictions</li>
+    <li>Produce policy recommendations for integrating geospatial intelligence into national climate adaptation strategies</li>
+    <li>Build institutional capacity for adaptive management and continuous model improvement</li>
+  </ul>
+
+  <h2>Expected Outputs</h2>
+  <ul>
+    <li><strong>Governance Framework Document:</strong> Institutional accountability protocols and responsibility matrices</li>
+    <li><strong>Model Validation Standards:</strong> Technical guidelines for consistency assessment and quality control</li>
+    <li><strong>Policy Recommendations:</strong> Evidence-based guidance for government integration of AI climate models</li>
+    <li><strong>Stakeholder Engagement Protocol:</strong> Framework for transparent communication with farming communities</li>
+    <li><strong>Case Study Analysis:</strong> Real-world examples of model inconsistency and resolution mechanisms</li>
+  </ul>
+
+  <h2>Significance & Impact</h2>
+  <p>
+    As governments increasingly adopt AI-informed climate adaptation systems, this research addresses an urgent governance gap. By establishing clear accountability frameworks, this project enables:
+  </p>
+  <ul>
+    <li>More trustworthy government adoption of climate-smart agriculture technologies</li>
+    <li>Reduced risk of maladaptation decisions based on conflicting model outputs</li>
+    <li>Enhanced accountability for research institutions and technology providers</li>
+    <li>Improved confidence among farming communities in adaptation guidance</li>
+    <li>Scalable governance models applicable across other climate-dependent sectors</li>
+  </ul>
+
+  <h2>Ongoing Work</h2>
+  <p>
+    This project is actively advancing through the governance design phase. Current activities include stakeholder consultations with Chinese government agencies, policy development workshops, and case study documentation of model inconsistency scenarios. The research will culminate in validated institutional frameworks ready for policy implementation.
+  </p>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Joseph Ouma | GIS Solutions Developer</p>
+</footer>
+
+</body>
+</html>
