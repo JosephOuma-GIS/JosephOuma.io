@@ -181,22 +181,12 @@
       display: block;
     }
 
-    .image-placeholder {
-      width: 100%;
-      height: 300px;
-      background: linear-gradient(135deg, rgba(79,70,229,.1), rgba(6,182,212,.1));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      color: rgba(0,0,0,0.2);
-    }
-
     .image-label {
       padding: 1.5rem;
       font-weight: 600;
       color: var(--dark);
       font-size: 1rem;
+      text-align: center;
     }
 
     .breadcrumb {
@@ -321,16 +311,20 @@
     
     <div class="gallery-grid">
       <div class="gallery-item">
-        <div class="image-placeholder">🗺️</div>
-        <div class="image-label">NDVI Map - Vegetation Index</div>
+        <img src="../assets/yala/ndvi-map.png.jpg" alt="NDVI Map showing vegetation health in Yala Wetland">
+        <div class="image-label">NDVI Map - Vegetation Health Index</div>
       </div>
       <div class="gallery-item">
-        <div class="image-placeholder">📸</div>
-        <div class="image-label">Field Photo - Wetland Vegetation</div>
+        <img src="../assets/yala/field-photo-1.jpg" alt="Field photo documenting wetland vegetation">
+        <div class="image-label">Field Photo - Wetland Vegetation Survey</div>
       </div>
       <div class="gallery-item">
-        <div class="image-placeholder">📊</div>
-        <div class="image-label">Temporal Trend Analysis</div>
+        <img src="../assets/yala/field-photo-2.jpg" alt="Additional field photo from Yala Wetland survey">
+        <div class="image-label">Field Photo - Ecosystem Ground Truthing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="../assets/yala/preview" alt="Preview of temporal trend analysis or additional output">
+        <div class="image-label">Temporal Trend & Analysis Preview</div>
       </div>
     </div>
   </div>
@@ -339,7 +333,7 @@
   
   <h3 style="font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem;">Data Processing Workflow</h3>
   <ul>
-    <li><strong>Image Selection:</strong> Cloud-free Sentinel-2 and Landsat scenes acquired during peak vegetation season</li>
+    <li><strong>Image Selection:</strong> UAV NDVI collected in June 2025,Cloud-free Sentinel-2 and Landsat scenes acquired during peak vegetation season</li>
     <li><strong>Preprocessing:</strong> Radiometric calibration, atmospheric correction, geometric alignment</li>
     <li><strong>NDVI Calculation:</strong> Band math operations on near-infrared (Band 8/4) and red (Band 4/3) bands</li>
     <li><strong>Classification:</strong> NDVI threshold-based vegetation class assignment (non-vegetation, sparse, moderate, dense)</li>
