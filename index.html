@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joseph Ouma | GIS Solutions Developer & Consultant</title>
+  <meta name="description" content="Joseph Ouma is a GIS Solutions Developer and Geospatial Consultant specializing in remote sensing, environmental mapping, precision agriculture, and spatial analytics.">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --secondary: #06b6d4;
+      --accent: #10b981;
+      --dark: #1f2937;
+      --light: #f9fafb;
+      --gray: #6b7280;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--dark);
+      background: var(--light);
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 1rem 2rem;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: width .3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      min-height: 100vh;
+      margin-top: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: auto;
+      opacity: 0.95;
+    }
+
+    .cta-button {
+      margin-top: 2rem;
+      display: inline-block;
+      padding: .9rem 2.5rem;
+      background: white;
+      color: var(--primary);
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform .2s;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.05);
+    }
+
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1200px; margin: auto; }
+
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      display: block;
+      margin-top: .8rem;
+    }
+
+    .research-intro {
+      max-width: 900px;
+      margin-bottom: 3.5rem;
+      font-size: 1.05rem;
+      color: var(--gray);
+    }
+
+    .featured-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+      gap: 2.5rem;
+    }
+
+    .featured-project-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,.08);
+      transition: transform .3s;
+    }
+
+    .featured-project-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .project-image {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      background: linear-gradient(135deg, rgba(79,70,229,.15), rgba(6,182,212,.15));
+    }
+
+    .project-content {
+      padding: 2rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: 1rem 0;
+    }
+
+    .tag {
+      background: rgba(79,70,229,.1);
+      color: var(--primary);
+      padding: .4rem .8rem;
+      border-radius: 20px;
+      font-size: .75rem;
+      font-weight: 600;
+    }
+
+    .project-link {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .nav-links { gap: 1rem; }
+      h2 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="nav-brand"><i class="fas fa-map"></i> Joseph Ouma</a>
+    <ul class="nav-links">
+      <li><a href="#featured-projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1>GIS Solutions & Geospatial Intelligence</h1>
+    <p>Transforming spatial data into actionable insights for sustainable development, environmental conservation, and climate-smart systems.</p>
+    <a href="#featured-projects" class="cta-button">View Projects</a>
+  </div>
+</section>
+
+<section id="featured-projects">
+  <div class="container">
+    <h2>Research & Professional Projects</h2>
+    <p class="research-intro">
+      Selected research-led and consultancy-based GIS projects spanning wetland ecosystems, urban water infrastructure, and climate vulnerability modelling. These works demonstrate applied geospatial intelligence, remote sensing, and governance-oriented spatial analysis at national and international scales.
+    </p>
+
+    <div class="featured-projects-grid">
+      <div class="featured-project-card">
+        <div class="project-image">🏞️</div>
+        <div class="project-content">
+          <h3>Yala Wetland Mapping</h3>
+          <p>NDVI-based wetland vegetation condition, inundation dynamics, and carbon pattern analysis supporting ecosystem conservation.</p>
+          <div class="project-tags">
+            <span class="tag">NDVI</span>
+            <span class="tag">Wetlands</span>
+            <span class="tag">Remote Sensing</span>
+          </div>
+          <a href="projects/yala-wetland.html" class="project-link">View project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="featured-project-card">
+        <div class="project-image">💧</div>
+        <div class="project-content">
+          <h3>KIWASCO Water Resource Mapping</h3>
+          <p>GIS-based mapping of urban water supply networks to support infrastructure planning and service optimization.</p>
+          <div class="project-tags">
+            <span class="tag">Infrastructure</span>
+            <span class="tag">Water</span>
+            <span class="tag">GIS</span>
+          </div>
+          <a href="projects/kiwasco-water.html" class="project-link">View project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="featured-project-card">
+        <div class="project-image">🌾</div>
+        <div class="project-content">
+          <h3>Climate-Smart Agriculture Modelling</h3>
+          <p>Governance-oriented climate vulnerability assessment and tipping point modelling for resilient agricultural systems in arid and semi-arid lands.</p>
+          <div class="project-tags">
+            <span class="tag">Climate</span>
+            <span class="tag">Agriculture</span>
+            <span class="tag">Modelling</span>
+          </div>
+          <a href="projects/climate-agriculture.html" class="project-link">View project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container" style="text-align:center;">
+    <h2>Contact</h2>
+    <p style="font-size: 1.1rem;">Email: <a href="mailto:ouma.otih@gmail.com" style="color: var(--primary);">ouma.otih@gmail.com</a></p>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Joseph Ouma | GIS Solutions & Geospatial Intelligence</p>
+</footer>
+
+</body>
+</html>
