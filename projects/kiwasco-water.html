@@ -1,1 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KIWASCO Water Resource Mapping | Joseph Ouma</title>
+  <meta name="description" content="GIS-based water infrastructure and resource mapping for KIWASCO to support planning, service optimization, and sustainable urban water management.">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --primary: #4f46e5;
+      --secondary: #06b6d4;
+      --accent: #10b981;
+      --dark: #1f2937;
+      --light: #f9fafb;
+      --gray: #6b7280;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--dark);
+      background: var(--light);
+      line-height: 1.7;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 1rem 2rem;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    header {
+      background: linear-gradient(135deg, #0ea5e9, #2563eb);
+      color: white;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      margin-top: 70px;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    header p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      font-weight: 700;
+    }
+
+    h2::after {
+      content: '';
+      width: 50px;
+      height: 4px;
+      background: linear-gradient(90deg, #0ea5e9, #2563eb);
+      display: block;
+      margin-top: .8rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    ul {
+      margin-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.8rem;
+      font-size: 1.05rem;
+    }
+
+    .meta-box {
+      background: white;
+      padding: 2rem;
+      border-left: 5px solid #0ea5e9;
+      margin: 2.5rem 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border-radius: 8px;
+    }
+
+    .meta-box strong {
+      color: #0ea5e9;
+      display: block;
+      margin-top: 0.8rem;
+    }
+
+    .meta-box strong:first-child {
+      margin-top: 0;
+    }
+
+    .gallery-section {
+      margin: 4rem 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: transform .3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px);
+    }
+
+    .image-placeholder {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, rgba(14,165,233,.1), rgba(37,99,235,.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: rgba(0,0,0,0.2);
+    }
+
+    .image-label {
+      padding: 1.5rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .impact-box {
+      background: #f0f9ff;
+      padding: 2rem;
+      border-radius: 8px;
+      border-left: 5px solid #0ea5e9;
+      margin: 2rem 0;
+    }
+
+    .impact-box h3 {
+      color: #0ea5e9;
+      margin-bottom: 1rem;
+    }
+
+    .breadcrumb {
+      padding: 1rem 2rem;
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      margin-top: 70px;
+    }
+
+    .breadcrumb a {
+      color: #0ea5e9;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      .nav-links { gap: 1rem; }
+      h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <a href="../index.html" class="nav-brand"><i class="fas fa-map"></i> Joseph Ouma</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#featured-projects">Projects</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="../index.html"><i class="fas fa-home"></i> Home</a> / 
+    <span>KIWASCO Water Resource Mapping</span>
+  </div>
+</div>
+
+<header>
+  <h1>KIWASCO Water Resource & Infrastructure Mapping</h1>
+  <p>GIS-based spatial mapping and analysis of urban water supply infrastructure to support planning, service optimization, and sustainable water management.</p>
+</header>
+
+<div class="container">
+
+  <h2>Project Overview</h2>
+  <p>
+    This project involved comprehensive spatial mapping and analysis of water supply infrastructure managed by the Kisumu Water and Sanitation Company (KIWASCO). The objective was to develop a high-quality geospatial dataset and decision-support system to enhance operational planning, service delivery optimization, and strategic infrastructure management for sustainable urban water provision.
+  </p>
+
+  <h2>Client & Context</h2>
+  <p>
+    KIWASCO serves the Kisumu region with responsibilities for water supply, sanitation, and wastewater management across both urban and peri-urban areas. This project directly supported the company's strategic objectives to improve service coverage, reduce non-revenue water loss, and optimize asset management through spatial intelligence.
+  </p>
+
+  <h2>Project Objectives</h2>
+  <ul>
+    <li>Map and digitize water supply infrastructure including distribution pipelines, service nodes, reservoirs, and treatment facilities</li>
+    <li>Identify service gaps, inefficiencies, and areas of infrastructure redundancy</li>
+    <li>Support evidence-based infrastructure planning and maintenance prioritization</li>
+    <li>Enable spatial analysis of service delivery patterns and customer coverage</li>
+    <li>Provide a foundation for integration with asset management and billing systems</li>
+  </ul>
+
+  <h2>Data & Methods</h2>
+  <ul>
+    <li><strong>Primary Data:</strong> Vector infrastructure data (pipelines, valves, connection points, reservoirs, meters)</li>
+    <li><strong>Data Collection:</strong> Field surveys, existing KIWASCO records, GPS validation</li>
+    <li><strong>Spatial Database:</strong> Comprehensive geodatabase with topology validation and network connectivity analysis</li>
+    <li><strong>Network Analysis:</strong> GIS-based water distribution network modeling and flow analysis</li>
+    <li><strong>Tools Used:</strong> ArcGIS, QGIS, spatial analysis extensions</li>
+    <li><strong>Validation:</strong> Field verification and accuracy assessment against KIWASCO operational data</li>
+  </ul>
+
+  <div class="meta-box">
+    <strong>Client:</strong> Kisumu Water and Sanitation Company (KIWASCO)
+    <strong>Project Type:</strong> Infrastructure Mapping & GIS Consultation
+    <strong>Role:</strong> GIS Analyst & Spatial Data Specialist
+    <strong>Tools:</strong> ArcGIS, QGIS, Spatial Analyst
+    <strong>Status:</strong> Completed
+    <strong>Location:</strong> Kisumu, Kenya
+  </div>
+
+  <div class="gallery-section">
+    <h2>Key Spatial Outputs</h2>
+    <p>The primary cartographic outputs include infrastructure distribution maps, service area analysis, and network topology visualizations.</p>
+    
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="image-placeholder">🗺️</div>
+        <div class="image-label">Water Network Distribution Map</div>
+      </div>
+      <div class="gallery-item">
+        <div class="image-placeholder">📸</div>
+        <div class="image-label">Field Survey - Infrastructure Verification</div>
+      </div>
+      <div class="gallery-item">
+        <div class="image-placeholder">🏘️</div>
+        <div class="image-label">Service Area & Coverage Analysis</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Key Analytical Outputs</h2>
+  <ul>
+    <li><strong>Infrastructure Inventory:</strong> Complete spatial catalog of pipelines, nodes, and facilities with attribute details</li>
+    <li><strong>Network Topology:</strong> Validated connectivity analysis ensuring hydraulic feasibility and operational logic</li>
+    <li><strong>Service Coverage Maps:</strong> Spatial representation of current service areas and underserved zones</li>
+    <li><strong>Gap Analysis:</strong> Identification of infrastructure deficiencies and expansion priorities</li>
+    <li><strong>Water Loss Hotspots:</strong> Spatial analysis of potential leakage zones based on network configuration</li>
+  </ul>
+
+  <div class="impact-box">
+    <h3>Application & Organizational Impact</h3>
+    <p>
+      The generated geospatial datasets directly enhanced KIWASCO's operational capacity by enabling:
+    </p>
+    <ul>
+      <li>Evidence-based prioritization of infrastructure maintenance and expansion investments</li>
+      <li>Spatial identification of non-revenue water loss zones for targeted interventions</li>
+      <li>Improved customer service through better understanding of network coverage and constraints</li>
+      <li>Strategic planning for service extension to underserved and emerging urban areas</li>
+      <li>Foundation for integration with SCADA systems and real-time monitoring infrastructure</li>
+    </ul>
+  </div>
+
+  <h2>Professional Value & Scalability</h2>
+  <p>
+    This project demonstrates the application of GIS to critical urban infrastructure management. The methodologies, data structures, and analytical approaches developed are directly transferable to other water utilities and infrastructure sectors, making this work valuable as a case study for institutional capacity building and spatial data governance in African utilities.
+  </p>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Joseph Ouma | GIS Solutions Developer</p>
+</footer>
+
+</body>
+</html>
