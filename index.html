@@ -151,10 +151,75 @@
       color: var(--gray);
     }
 
+    .about-intro {
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--dark);
+      text-align: center;
+    }
+
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.08);
+      transition: transform .3s;
+      border-top: 5px solid var(--primary);
+      text-align: center;
+    }
+
+    .service-card:nth-child(2) { border-top-color: var(--secondary); }
+    .service-card:nth-child(3) { border-top-color: var(--accent); }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.12);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: .8rem;
+      font-weight: 700;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card a {
+      display: inline-block;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .service-card a:hover {
+      color: var(--primary-dark);
+    }
+
+    /* Projects Grid */
     .featured-projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
       gap: 2.5rem;
+      margin-top: 2rem;
     }
 
     .featured-project-card {
@@ -207,6 +272,76 @@
       gap: .5rem;
     }
 
+    .project-link:hover {
+      gap: 1rem;
+    }
+
+    /* Value Props Section */
+    .value-section {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.08);
+      margin: 3rem 0;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .value-item {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .value-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .value-content h4 {
+      font-size: 1.1rem;
+      margin-bottom: .5rem;
+      font-weight: 700;
+    }
+
+    .value-content p {
+      font-size: 0.95rem;
+      color: var(--gray);
+    }
+
+    /* Contact Section */
+    .contact-section {
+      text-align: center;
+      padding: 3rem;
+      background: linear-gradient(135deg, rgba(79,70,229,.05), rgba(6,182,212,.05));
+      border-radius: 12px;
+      margin: 3rem 0;
+    }
+
+    .contact-section p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-section a {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: background .2s;
+    }
+
+    .contact-section a:hover {
+      background: var(--primary-dark);
+    }
+
     footer {
       background: var(--dark);
       color: white;
@@ -214,10 +349,15 @@
       text-align: center;
     }
 
+    footer a {
+      color: var(--secondary);
+    }
+
     @media (max-width: 768px) {
       .hero h1 { font-size: 2rem; }
       .nav-links { gap: 1rem; }
       h2 { font-size: 1.8rem; }
+      .services-grid, .featured-projects-grid, .value-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -227,6 +367,7 @@
   <div class="nav-container">
     <a href="index.html" class="nav-brand"><i class="fas fa-map"></i> Joseph Ouma</a>
     <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
       <li><a href="#featured-projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -237,10 +378,97 @@
   <div>
     <h1>GIS Solutions & Geospatial Intelligence</h1>
     <p>Transforming spatial data into actionable insights for sustainable development, environmental conservation, and climate-smart systems.</p>
-    <a href="#featured-projects" class="cta-button">View Projects</a>
+    <a href="#services" class="cta-button">Explore Services</a>
   </div>
 </section>
 
+<!-- Professional Services Section with About Integration -->
+<section id="services">
+  <div class="container">
+    <h2>Professional Services</h2>
+    
+    <p class="about-intro">
+      As a dedicated GIS specialist and consultant with extensive expertise in Geographic Information Systems (GIS), remote sensing, vulnerable smart agriculture, ecosystem conservation, and geospatial modelling, I deliver data-driven solutions for sustainable environmental and agricultural challenges. Proficient in tools such as ArcGIS, QGIS, ENVI, Google Earth Engine, MaxEnt, and InVEST, I specialize in satellite imagery processing, land-use/land-cover mapping, spatial analytics, precision farming with IoT integration, crop health monitoring, climate-resilient agricultural models, habitat fragmentation simulations, biodiversity assessments, and carbon sequestration modelling. My consultancy experience spans collaborations with governments, NGOs, and private sectors on projects including disaster response planning, protected area design, soil and water resource management, and policy-informed restoration strategies, transforming complex geospatial data into actionable insights that promote resilience, ecological balance, and innovation.
+    </p>
+
+    <p class="research-intro">
+      I work as a consultant, researcher, and educator—offering end-to-end GIS solutions, rigorous geospatial research, and practical technical training tailored to your needs.
+    </p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Geospatial Consulting</h3>
+        <p>End-to-end GIS solutions for infrastructure mapping, environmental assessment, resource management, and spatial decision-support systems.</p>
+        <a href="services.html">Learn More →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔬</div>
+        <h3>Research & Analysis</h3>
+        <p>Rigorous geospatial research combining remote sensing, spatial analysis, climate modeling, and governance frameworks for actionable intelligence.</p>
+        <a href="services.html">Learn More →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎓</div>
+        <h3>Technical Education</h3>
+        <p>Hands-on training in GIS, remote sensing, and spatial analysis. Workshops, courses, and mentorship for students and professionals.</p>
+        <a href="services.html">Learn More →</a>
+      </div>
+    </div>
+
+    <div class="value-section">
+      <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 2rem;">Why Work With Me</h3>
+      <div class="value-grid">
+        <div class="value-item">
+          <div class="value-icon">✓</div>
+          <div class="value-content">
+            <h4>Research-Backed</h4>
+            <p>Solutions grounded in rigorous analysis and peer-reviewed methodologies.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">✓</div>
+          <div class="value-content">
+            <h4>Practical Impact</h4>
+            <p>Focus on actionable insights that drive real-world decision-making.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">✓</div>
+          <div class="value-content">
+            <h4>Technical Excellence</h4>
+            <p>Expert in modern GIS tools, remote sensing, and geospatial programming.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">✓</div>
+          <div class="value-content">
+            <h4>Knowledge Transfer</h4>
+            <p>Committed to building your team's capacity and technical ownership.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">✓</div>
+          <div class="value-content">
+            <h4>International Experience</h4>
+            <p>Work across Africa, Asia, and emerging geographies with diverse stakeholders.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">✓</div>
+          <div class="value-content">
+            <h4>Collaborative Approach</h4>
+            <p>Partner closely with your team to ensure alignment and lasting outcomes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Projects Section -->
 <section id="featured-projects">
   <div class="container">
     <h2>Research & Professional Projects</h2>
@@ -294,15 +522,20 @@
   </div>
 </section>
 
+<!-- Contact Section -->
 <section id="contact">
-  <div class="container" style="text-align:center;">
-    <h2>Contact</h2>
-    <p style="font-size: 1.1rem;">Email: <a href="mailto:ouma.otih@gmail.com" style="color: var(--primary);">ouma.otih@gmail.com</a></p>
+  <div class="container">
+    <div class="contact-section">
+      <h2 style="margin-top: 0;">Let's Work Together</h2>
+      <p>Whether you need consulting, research collaboration, or technical training—let's discuss how spatial intelligence can advance your mission.</p>
+      <a href="mailto:ouma.otih@gmail.com"><i class="fas fa-envelope"></i> Get in Touch</a>
+    </div>
   </div>
 </section>
 
 <footer>
   <p>&copy; 2026 Joseph Ouma | GIS Solutions & Geospatial Intelligence</p>
+  <p>Email: <a href="mailto:ouma.otih@gmail.com">ouma.otih@gmail.com</a></p>
 </footer>
 
 </body>
