@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Joseph Ouma</title>
+  <meta name="description" content="Geospatial consulting, research, and technical education services by Joseph Ouma.">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Reuse the same styles as index.html for consistency */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #4f46e5; --primary-dark: #4338ca; --secondary: #06b6d4;
+      --accent: #10b981; --dark: #1f2937; --light: #f9fafb; --gray: #6b7280;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--dark); background: var(--light); line-height: 1.6;
+    }
+    nav {
+      position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;
+      padding: 1rem 2rem;
+    }
+    .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; }
+    .nav-brand { font-size: 1.4rem; font-weight: 700; text-decoration: none;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .nav-links { list-style: none; display: flex; gap: 2rem; }
+    .nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -6px; width: 0; height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width .3s; }
+    .nav-links a:hover::after { width: 100%; }
+    .container { max-width: 1200px; margin: auto; padding: 7rem 2rem 5rem; }
+    h1 { font-size: 2.8rem; margin-bottom: 1.5rem; text-align: center; }
+    h1::after { content: ''; display: block; width: 80px; height: 4px; background: linear-gradient(90deg, var(--primary), var(--secondary));
+      margin: 1rem auto; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+    .service-detail { background: white; padding: 2.5rem; border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.08); border-top: 5px solid var(--primary); }
+    .service-detail:nth-child(2) { border-top-color: var(--secondary); }
+    .service-detail:nth-child(3) { border-top-color: var(--accent); }
+    .service-detail h2 { font-size: 1.6rem; margin-bottom: 1rem; }
+    .service-detail ul { margin: 1.5rem 0; padding-left: 1.5rem; }
+    .service-detail li { margin-bottom: .8rem; color: var(--gray); }
+    .back-link { display: block; text-align: center; margin: 4rem 0; font-size: 1.1rem; }
+    .back-link a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    footer { background: var(--dark); color: white; padding: 3rem 2rem; text-align: center; }
+    @media (max-width: 768px) { h1 { font-size: 2.2rem; } .services-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="nav-brand"><i class="fas fa-map"></i> Joseph Ouma</a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#featured-projects">Projects</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>My Services</h1>
+
+  <div class="services-grid">
+    <div class="service-detail">
+      <h2>Geospatial Consulting</h2>
+      <p>End-to-end GIS solutions tailored to your organization's needs, including infrastructure mapping, environmental impact assessments, resource management, disaster response planning, and spatial decision-support systems.</p>
+      <ul>
+        <li>Custom GIS application development</li>
+        <li>Spatial data infrastructure design</li>
+        <li>Land-use/land-cover change analysis</li>
+        <li>Urban planning and infrastructure mapping</li>
+        <li>Policy-informed spatial strategies</li>
+      </ul>
+    </div>
+
+    <div class="service-detail">
+      <h2>Research & Analysis</h2>
+      <p>Rigorous, publication-quality geospatial research combining remote sensing, spatial statistics, climate modelling, and governance frameworks.</p>
+      <ul>
+        <li>Satellite imagery processing (Landsat, Sentinel, MODIS)</li>
+        <li>Species distribution & habitat modelling (MaxEnt, InVEST)</li>
+        <li>Climate vulnerability & tipping point analysis</li>
+        <li>Carbon sequestration and ecosystem services valuation</li>
+        <li>Peer-reviewed research and technical reporting</li>
+      </ul>
+    </div>
+
+    <div class="service-detail">
+      <h2>Technical Education & Training</h2>
+      <p>Hands-on capacity building for individuals, teams, and institutions.</p>
+      <ul>
+        <li>Workshops on ArcGIS, QGIS, Google Earth Engine, ENVI</li>
+        <li>Custom courses in remote sensing and spatial analysis</li>
+        <li>Mentorship for students and early-career professionals</li>
+        <li>Curriculum development for universities and training programs</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="back-link"><a href="index.html">← Back to Home</a></p>
+</div>
+
+<footer>
+  <p>&copy; 2026 Joseph Ouma | GIS Solutions & Geospatial Intelligence</p>
+</footer>
+
+</body>
+</html>
