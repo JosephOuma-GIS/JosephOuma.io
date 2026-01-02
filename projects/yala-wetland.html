@@ -1,1 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yala Wetland Mapping | Joseph Ouma</title>
+  <meta name="description" content="GIS-based NDVI analysis and wetland vegetation mapping for Yala Wetland, supporting ecological monitoring and conservation planning.">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --primary: #4f46e5;
+      --secondary: #06b6d4;
+      --accent: #10b981;
+      --dark: #1f2937;
+      --light: #f9fafb;
+      --gray: #6b7280;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--dark);
+      background: var(--light);
+      line-height: 1.7;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 1rem 2rem;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    header {
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      color: white;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      margin-top: 70px;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    header p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      font-weight: 700;
+    }
+
+    h2::after {
+      content: '';
+      width: 50px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      display: block;
+      margin-top: .8rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    ul {
+      margin-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.8rem;
+      font-size: 1.05rem;
+    }
+
+    .meta-box {
+      background: white;
+      padding: 2rem;
+      border-left: 5px solid var(--primary);
+      margin: 2.5rem 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border-radius: 8px;
+    }
+
+    .meta-box strong {
+      color: var(--primary);
+      display: block;
+      margin-top: 0.8rem;
+    }
+
+    .meta-box strong:first-child {
+      margin-top: 0;
+    }
+
+    .gallery-section {
+      margin: 4rem 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: transform .3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-placeholder {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, rgba(79,70,229,.1), rgba(6,182,212,.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: rgba(0,0,0,0.2);
+    }
+
+    .image-label {
+      padding: 1.5rem;
+      font-weight: 600;
+      color: var(--dark);
+      font-size: 1rem;
+    }
+
+    .breadcrumb {
+      padding: 1rem 2rem;
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      margin-top: 70px;
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .key-findings {
+      background: #f0f9ff;
+      padding: 2rem;
+      border-radius: 8px;
+      border-left: 5px solid var(--secondary);
+      margin: 2.5rem 0;
+    }
+
+    .key-findings h3 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      .nav-links { gap: 1rem; }
+      h2 { font-size: 1.5rem; }
+      .container { padding: 2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <a href="../index.html" class="nav-brand"><i class="fas fa-map"></i> Joseph Ouma</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#featured-projects">Projects</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="../index.html"><i class="fas fa-home"></i> Home</a> / 
+    <span>Yala Wetland Mapping</span>
+  </div>
+</div>
+
+<header>
+  <h1>Yala Wetland Mapping & NDVI Analysis</h1>
+  <p>GIS and remote sensing–based assessment of wetland vegetation condition using NDVI to support ecological monitoring and conservation planning.</p>
+</header>
+
+<div class="container">
+
+  <h2>Project Overview</h2>
+  <p>
+    The Yala Wetland Mapping project focused on assessing spatial and temporal vegetation dynamics within the Yala Wetland ecosystem. Using satellite-derived NDVI (Normalized Difference Vegetation Index), the study aimed to identify vegetation health patterns, inundation dynamics, and potential degradation zones. This research supports evidence-based conservation strategies and adaptive management in a minimally disturbed but ecologically sensitive wetland environment.
+  </p>
+
+  <h2>Objectives</h2>
+  <ul>
+    <li>Map vegetation condition using NDVI derived from satellite imagery</li>
+    <li>Identify spatial variability in wetland vegetation health and productivity</li>
+    <li>Assess inundation dynamics and seasonal water availability patterns</li>
+    <li>Quantify carbon sequestration potential and ecosystem services</li>
+    <li>Support wetland conservation and adaptive management decisions</li>
+    <li>Establish a baseline for long-term ecological monitoring</li>
+  </ul>
+
+  <h2>Data & Methods</h2>
+  <ul>
+    <li><strong>Satellite Data:</strong> Sentinel-2 and Landsat multispectral imagery (2020-2023)</li>
+    <li><strong>NDVI Computation:</strong> Spectral index calculation: (NIR - Red) / (NIR + Red)</li>
+    <li><strong>Temporal Analysis:</strong> Multi-seasonal and inter-annual vegetation trend assessment</li>
+    <li><strong>Spatial Analysis:</strong> Raster processing, zonal statistics, hotspot analysis</li>
+    <li><strong>Tools:</strong> QGIS, ArcGIS, Google Earth Engine, Python (rasterio, geopandas)</li>
+    <li><strong>Ground Truthing:</strong> Field surveys, ecosystem sampling, vegetation classification validation</li>
+    <li><strong>Accuracy Assessment:</strong> Confusion matrix analysis and kappa statistics</li>
+  </ul>
+
+  <div class="meta-box">
+    <strong>Project Type:</strong> Ecological Research & Remote Sensing Analysis
+    <strong>Role:</strong> GIS & Remote Sensing Analyst
+    <strong>Tools:</strong> QGIS, ArcGIS, Google Earth Engine, Python
+    <strong>Status:</strong> Completed
+    <strong>Location:</strong> Yala Wetland, East Africa
+    <strong>Data Period:</strong> 2020-2023
+  </div>
+
+  <div class="gallery-section">
+    <h2>Key Spatial Outputs</h2>
+    <p>Below are the primary cartographic outputs from this analysis, including NDVI mapping, field documentation, and validation datasets.</p>
+    
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="image-placeholder">🗺️</div>
+        <div class="image-label">NDVI Map - Vegetation Index</div>
+      </div>
+      <div class="gallery-item">
+        <div class="image-placeholder">📸</div>
+        <div class="image-label">Field Photo - Wetland Vegetation</div>
+      </div>
+      <div class="gallery-item">
+        <div class="image-placeholder">📊</div>
+        <div class="image-label">Temporal Trend Analysis</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Methodology Details</h2>
+  
+  <h3 style="font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem;">Data Processing Workflow</h3>
+  <ul>
+    <li><strong>Image Selection:</strong> Cloud-free Sentinel-2 and Landsat scenes acquired during peak vegetation season</li>
+    <li><strong>Preprocessing:</strong> Radiometric calibration, atmospheric correction, geometric alignment</li>
+    <li><strong>NDVI Calculation:</strong> Band math operations on near-infrared (Band 8/4) and red (Band 4/3) bands</li>
+    <li><strong>Classification:</strong> NDVI threshold-based vegetation class assignment (non-vegetation, sparse, moderate, dense)</li>
+    <li><strong>Zonal Analysis:</strong> Aggregation by wetland sub-zones and habitat types</li>
+    <li><strong>Validation:</strong> Field surveys across 25+ sampling points for accuracy verification</li>
+  </ul>
+
+  <div class="key-findings">
+    <h3>Key Findings</h3>
+    <ul>
+      <li>Heterogeneous vegetation distribution across wetland zones with distinct NDVI patterns ranging from 0.15 to 0.85</li>
+      <li>Seasonal inundation dynamics correlating with vegetation productivity (peak NDVI in post-flood periods)</li>
+      <li>Core conservation zones identified with high vegetation density and carbon storage potential</li>
+      <li>Marginal degradation areas suitable for targeted restoration interventions</li>
+      <li>Baseline established for tracking responses to climate variability and land-use pressures</li>
+      <li>Overall ecosystem health status: Stable with localized improvement opportunities</li>
+    </ul>
+  </div>
+
+  <h2>Application & Impact</h2>
+  <p>
+    The outputs from this project provide a spatial baseline for monitoring wetland vegetation changes over time. The results support conservation planning by identifying priority zones for ecosystem restoration, quantifying carbon storage potential, and tracking responses to climate variability. These outputs integrate with UAV surveys and field-based datasets for enhanced adaptive management.
+  </p>
+
+  <h2>Conservation Implications</h2>
+  <ul>
+    <li><strong>Evidence-Based Planning:</strong> Spatial data informs prioritization of conservation investments and restoration efforts</li>
+    <li><strong>Climate Adaptation:</strong> Baseline enables monitoring of vegetation responses to changing precipitation and temperature patterns</li>
+    <li><strong>Carbon Accounting:</strong> NDVI-derived estimates support ecosystem services valuation and payment schemes</li>
+    <li><strong>Policy Support:</strong> Outputs inform wetland protection policies and land-use decisions at district and national levels</li>
+    <li><strong>Community Engagement:</strong> Visualizations support stakeholder communication and conservation awareness</li>
+  </ul>
+
+  <h2>Long-Term Monitoring</h2>
+  <p>
+    This project establishes the foundation for ongoing ecological monitoring. Future work includes:
+  </p>
+  <ul>
+    <li>Annual NDVI updates to track inter-annual vegetation variability</li>
+    <li>Integration with hydrological data for water-vegetation relationships</li>
+    <li>UAV-based high-resolution surveys for detailed habitat mapping</li>
+    <li>Machine learning classification for automated ecosystem health assessment</li>
+    <li>Integration with regional climate models for future scenario planning</li>
+  </ul>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Joseph Ouma | GIS Solutions Developer</p>
+  <p><a href="mailto:ouma.otih@gmail.com">Contact: ouma.otih@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
