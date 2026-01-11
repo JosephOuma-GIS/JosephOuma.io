@@ -459,56 +459,130 @@
         <a href="services.html">Learn More →</a>
       </div>
 
-    <div class="value-section">
-      <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 2rem;">Why Work With Me</h3>
-      <div class="value-grid">
-        <div class="value-item">
-          <div class="value-icon">✓</div>
-          <div class="value-content">
-            <h4>Research-Backed</h4>
-            <p>Solutions grounded in rigorous analysis and peer-reviewed methodologies.</p>
-          </div>
-        </div>
-        <div class="value-item">
-          <div class="value-icon">✓</div>
-          <div class="value-content">
-            <h4>Practical Impact</h4>
-            <p>Focus on actionable insights that drive real-world decision-making.</p>
-          </div>
-        </div>
-        <div class="value-item">
-          <div class="value-icon">✓</div>
-          <div class="value-content">
-            <h4>Technical Excellence</h4>
-            <p>Expert in modern GIS tools, remote sensing, and geospatial programming.</p>
-          </div>
-        </div>
-        <div class="value-item">
-          <div class="value-icon">✓</div>
-          <div class="value-content">
-            <h4>Knowledge Transfer</h4>
-            <p>Committed to building your team's capacity and technical ownership.</p>
-          </div>
-        </div>
-        <div class="value-item">
-          <div class="value-icon">✓</div>
-          <div class="value-content">
-            <h4>International Experience</h4>
-            <p>Work across Africa, Asia, and emerging geographies with diverse stakeholders.</p>
-          </div>
-        </div>
-        <div class="value-item">
-          <div class="value-icon">✓</div>
-          <div class="value-content">
-            <h4>Collaborative Approach</h4>
-            <p>Partner closely with your team to ensure alignment and lasting outcomes.</p>
-          </div>
-        </div>
-      </div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Work With Me</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #4f46e5;
+      --secondary: #06b6d4;
+      --accent: #10b981;
+      --dark: #1f2937;
+      --light: #f9fafb;
+      --gray: #6b7280;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 3rem;
+      font-weight: 700;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .value-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .value-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .value-item h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .value-item p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Why Work With Me</h2>
+
+  <div class="value-grid">
+    <div class="value-item">
+      <h4>Research-Backed</h4>
+      <p>Solutions grounded in rigorous analysis and peer-reviewed methodologies.</p>
+    </div>
+
+    <div class="value-item">
+      <h4>Practical Impact</h4>
+      <p>Focus on actionable insights that drive real-world decision-making.</p>
+    </div>
+
+    <div class="value-item">
+      <h4>Technical Excellence</h4>
+      <p>Expert in modern GIS tools, remote sensing, and geospatial programming.</p>
+    </div>
+
+    <div class="value-item">
+      <h4>Knowledge Transfer</h4>
+      <p>Committed to building your team's capacity and technical ownership.</p>
+    </div>
+
+    <div class="value-item">
+      <h4>International Experience</h4>
+      <p>Work across Africa, Asia, and emerging geographies with diverse stakeholders.</p>
+    </div>
+
+    <div class="value-item">
+      <h4>Collaborative Approach</h4>
+      <p>Partner closely with your team to ensure alignment and lasting outcomes.</p>
     </div>
   </div>
-</section>
+</div>
 
+</body>
+</html>
 <!-- Featured Projects Section -->
 <section id="featured-projects">
   <div class="container">
