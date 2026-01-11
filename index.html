@@ -606,51 +606,447 @@
         </div>
       </div>
 
-      <div class="featured-project-card">
-        <div class="project-image">💧</div>
-        <div class="project-content">
-          <h3>KIWASCO Water Resource Mapping</h3>
-          <p>GIS-based mapping of urban water supply networks to support infrastructure planning and service optimization.</p>
-          <div class="project-tags">
-            <span class="tag">Infrastructure</span>
-            <span class="tag">Water</span>
-            <span class="tag">GIS</span>
-          </div>
-          <a href="projects/kiwasco-water.html" class="project-link">View project <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research & Professional Projects</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      <div class="featured-project-card">
-        <div class="project-image">🌾</div>
-        <div class="project-content">
-          <h3>Climate-Smart Agriculture Modelling</h3>
-          <p>Governance-oriented climate vulnerability assessment and tipping point modelling for resilient agricultural systems in arid and semi-arid lands.</p>
-          <div class="project-tags">
-            <span class="tag">Climate</span>
-            <span class="tag">Agriculture</span>
-            <span class="tag">Modelling</span>
-          </div>
-          <a href="projects/climate-agriculture.html" class="project-link">View project <i class="fas fa-arrow-right"></i></a>
+    :root {
+      --primary: #4f46e5;
+      --secondary: #06b6d4;
+      --accent: #10b981;
+      --dark: #1f2937;
+      --light: #f9fafb;
+      --gray: #6b7280;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      position: relative;
+      font-weight: 700;
+    }
+
+    h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      display: block;
+      margin-top: 0.8rem;
+    }
+
+    .research-intro {
+      max-width: 900px;
+      margin-bottom: 3.5rem;
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .project-icon {
+      padding: 1.5rem;
+      font-size: 2.5rem;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(6, 182, 212, 0.1));
+    }
+
+    .project-content {
+      padding: 2rem;
+    }
+
+    .project-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .project-content p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag {
+      background: rgba(79, 70, 229, 0.1);
+      color: var(--primary);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .project-link {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.3s ease;
+    }
+
+    .project-link:hover {
+      gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .research-intro {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Research & Professional Projects</h2>
+
+  <p class="research-intro">
+    Selected research-led and consultancy-based GIS projects spanning wetland ecosystems, urban water infrastructure, and climate vulnerability modelling. These works demonstrate applied geospatial intelligence, remote sensing, and governance-oriented spatial analysis at national and international scales.
+  </p>
+
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-icon">🏞️</div>
+      <div class="project-content">
+        <h3>Yala Wetland Mapping</h3>
+        <p>NDVI-based wetland vegetation condition, Wildlife conservation and Landscape analysis, inundation dynamics, and carbon pattern analysis supporting ecosystem conservation.</p>
+        <div class="project-tags">
+          <span class="tag">NDVI</span>
+          <span class="tag">Wetlands</span>
+          <span class="tag">Remote Sensing</span>
         </div>
+        <a href="projects/yala-wetland.html" class="project-link">View project <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">💧</div>
+      <div class="project-content">
+        <h3>KIWASCO Water Resource Mapping</h3>
+        <p>GIS-based mapping of urban water supply networks to support infrastructure planning and service optimization.</p>
+        <div class="project-tags">
+          <span class="tag">Infrastructure</span>
+          <span class="tag">Water</span>
+          <span class="tag">GIS</span>
+        </div>
+        <a href="projects/kiwasco-water.html" class="project-link">View project <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">🌾</div>
+      <div class="project-content">
+        <h3>Climate-Smart Agriculture Modelling</h3>
+        <p>Governance-oriented climate vulnerability assessment and tipping point modelling for resilient agricultural systems in arid and semi-arid lands.</p>
+        <div class="project-tags">
+          <span class="tag">Climate</span>
+          <span class="tag">Agriculture</span>
+          <span class="tag">Modelling</span>
+        </div>
+        <a href="projects/climate-agriculture.html" class="project-link">View project <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
-</section>
+</div>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Section</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --secondary: #06b6d4;
+      --accent: #10b981;
+      --dark: #1f2937;
+      --light: #f9fafb;
+      --gray: #6b7280;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+    }
+
+    section {
+      padding: 5rem 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 6rem 2rem;
+    }
+
+    .contact-wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-wrapper h2 {
+      font-size: 2.4rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .contact-wrapper > p:first-of-type {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    /* Contact Options Grid */
+    .contact-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .contact-option {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: var(--dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-option:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .contact-option-icon {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+
+    .contact-option h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .contact-option p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin: 0;
+    }
+
+    /* CTA Button */
+    .cta-primary {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(79, 70, 229, 0.4);
+    }
+
+    .cta-primary i {
+      margin-right: 0.5rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 2px solid var(--primary);
+    }
+
+    footer p {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    footer a:hover {
+      color: var(--primary);
+    }
+
+    .footer-links {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 1.3rem;
+      padding: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 3rem 1.5rem;
+      }
+
+      .contact-wrapper h2 {
+        font-size: 1.8rem;
+      }
+
+      .contact-options {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
 
 <!-- Contact Section -->
 <section id="contact">
   <div class="container">
-    <div class="contact-section">
-      <h2 style="margin-top: 0;">Let's Work Together</h2>
+    <div class="contact-wrapper">
+      <h2>Let's Work Together</h2>
       <p>Whether you need consulting, research collaboration, or technical training—let's discuss how spatial intelligence can advance your mission.</p>
-      <a href="mailto:ouma.otih@gmail.com"><i class="fas fa-envelope"></i> Get in Touch</a>
+
+      <div class="contact-options">
+        <a href="mailto:ouma.otih@gmail.com" class="contact-option">
+          <div class="contact-option-icon"><i class="fas fa-envelope"></i></div>
+          <h3>Email</h3>
+          <p>ouma.otih@gmail.com</p>
+        </a>
+
+        <a href="https://www.linkedin.com/in/josephouma" class="contact-option">
+          <div class="contact-option-icon"><i class="fab fa-linkedin"></i></div>
+          <h3>LinkedIn</h3>
+          <p>Connect with me</p>
+        </a>
+
+        <a href="https://github.com/josephouma" class="contact-option">
+          <div class="contact-option-icon"><i class="fab fa-github"></i></div>
+          <h3>GitHub</h3>
+          <p>View my work</p>
+        </a>
+      </div>
+
+      <a href="mailto:ouma.otih@gmail.com?subject=GIS%20Consultation%20Inquiry" class="cta-primary">
+        <i class="fas fa-paper-plane"></i> Schedule a Consultation
+      </a>
     </div>
   </div>
 </section>
 
+<!-- Footer -->
 <footer>
   <p>&copy; 2026 Joseph Ouma | GIS Solutions & Geospatial Intelligence</p>
-  <p>Email: <a href="mailto:ouma.otih@gmail.com">ouma.otih@gmail.com</a></p>
+  <p>Building spatial intelligence for a resilient future</p>
+
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/josephouma" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/josephouma" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="mailto:ouma.otih@gmail.com" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+  </div>
 </footer>
 
 </body>
